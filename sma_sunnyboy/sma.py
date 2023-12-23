@@ -64,6 +64,9 @@ class WebConnect:
 		:param use_ssl: Should establish use SSL, defaults to False
 		:type use_ssl: bool, optional
 		"""
+
+		print("Init")
+
 		self.ip = ip
 		self.__user = user
 		self.__password = password
@@ -78,6 +81,17 @@ class WebConnect:
 
 		self.__url += ':' + str(self.__port)
 
+
+	def __enter__(self):
+		print("Enter")
+		self.auth()
+		print("Auth succesful")
+		return self
+
+	def __exit__(self, exc_type, exc_val, exc_tb):
+		print("Exit")
+		self.logout()
+	
 	def auth(self):
 		"""Establish a new connexion
 
