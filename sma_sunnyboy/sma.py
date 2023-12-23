@@ -65,7 +65,6 @@ class WebConnect:
 		:type use_ssl: bool, optional
 		"""
 
-		print("Init")
 
 		self.ip = ip
 		self.__user = user
@@ -83,13 +82,10 @@ class WebConnect:
 
 
 	def __enter__(self):
-		print("Enter")
 		self.auth()
-		print("Auth succesful")
 		return self
 
 	def __exit__(self, exc_type, exc_val, exc_tb):
-		print("Exit")
 		self.logout()
 	
 	def auth(self):
