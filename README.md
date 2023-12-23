@@ -23,6 +23,16 @@ pow_current = client.get_value(Key.power_current)
 client.logout()
 ```
 
+Alternatively you can use a 'with' statement. 
+This way, authentication and log-out is done implicitly.
+
+```py
+from sma_sunnyboy import *
+
+with WebConnect("192.168.xxx.xxx", Right.USER, "password") as client:
+    pow_current = client.get_value(Key.power_current)
+```
+
 ## Initialize
 Start by import and instantiate the module using **WebConnect**
 
